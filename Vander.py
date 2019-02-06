@@ -1,4 +1,21 @@
 
+function y = vandermonde1(x)
+  n = length(x)
+  for i = 1:n
+    y(:, i) = x^(i-1)
+  end
+endfunction
+
+function y = vandermonde2(a)
+  n = length(a)
+  y=[a*ones(1,4)].^[[0:n-1]'*ones(1,4)]'
+endfunction
+
+function y = vandermonde3(a)
+  n = length(a)
+  y = kron(a, ones(1, n)).^kron([0:n-1]', ones(1, n))'
+endfunction
+
 from base import Algorithm, mean
 
 class LinregNonMatrix(Algorithm):
